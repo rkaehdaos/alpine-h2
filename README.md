@@ -3,7 +3,7 @@
 
 
 ## 개요
-- 알파인 리눅스에 h2만 똭
+- 알파인 리눅스에 h2database만 똭
 - 최소 설치
 - 데이터 위치: `/opt/h2-data`
 
@@ -11,7 +11,7 @@
 
 - [Automated builds](https://hub.docker.com/repository/docker/rkaehdaos/h2) 
 
-- [`latest`, `1.4.200` (*1.4.200/Dockerfile*)]()
+- [`latest`, `1.4.200` (*1.4.200/Dockerfile*)](https://github.com/buildo/docker-h2database/blob/master/Dockerfile)
 
 
 ## 실행
