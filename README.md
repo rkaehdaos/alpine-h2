@@ -9,7 +9,7 @@
 
 ## 도커파일 확인
 
-- [Automated builds](도커허브) 
+- [Automated builds](https://hub.docker.com/repository/docker/rkaehdaos/h2) 
 
 - [`latest`, `1.4.200` (*1.4.200/Dockerfile*)]()
 
@@ -28,7 +28,7 @@ docker pull rkaehdaos/h2
 docker run -d -p 1521:1521 -p 81:81 -v /path/to/local/data_dir:/opt/h2-data --name=my-h2 
 ```
 
-추가 커스텀 config 설정으로 연결시 DB 생성을 수락합니다 (기본 값)
+다른 방법 : 추가 커스텀 config 설정으로 연결시 DB 생성을 수락합니다 (run2.sh)
 
 ```
 docker run -d -p 1521:1521 -p 81:81 -v /path/to/local/data_dir:/opt/h2-data -e H2_OPTIONS=-ifNotExists --name=my-h2 rkaehdaos/h2
