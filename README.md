@@ -9,7 +9,7 @@
 
 ## 도커파일 확인
 
-- [Automated builds](도커허브) 
+- [Automated builds](https://hub.docker.com/repository/docker/rkaehdaos/h2) 
 
 - [`latest`, `1.4.200` (*1.4.200/Dockerfile*)]()
 
