@@ -11,7 +11,7 @@
 
 - [Automated builds](https://hub.docker.com/repository/docker/rkaehdaos/h2) 
 
-- [`latest`, `1.4.200` (*1.4.200/Dockerfile*)](https://github.com/buildo/docker-h2database/blob/master/Dockerfile)
+- [`latest`, `1.4.200` (*1.4.200/Dockerfile*)](https://github.com/rkaehdaos/h2/blob/main/Dockerfile)
 
 
 ## 실행
