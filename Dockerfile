@@ -1,14 +1,17 @@
 FROM openjdk:jre-alpine
 
-MAINTAINER GeunChang Ahn <rkaehdaos@gmail.com>
+LABEL name ="GeunChang Ahn"
+LABEL email = "rkaehdaos@gmail.com"
+LABEL version = "2.0.202"
+LABEL description = "2.0.202 upgrade"
 
-ENV DOWNLOAD http://www.h2database.com/h2-2019-10-14.zip
+ENV DOWNLOAD https://github.com/h2database/h2database/releases/download/version-2.0.202/h2-2021-11-25.zip
 ENV DATA_DIR /opt/h2-data
 
-RUN apk add --no-cache curl
+RUN apk add --no-cache wget
 
 RUN mkdir -p ${DATA_DIR} \
-    && curl ${DOWNLOAD} -o h2.zip \
+    && wget -O h2.zip ${DOWNLOAD} \
     && unzip h2.zip -d /opt/ \
     && rm h2.zip
 

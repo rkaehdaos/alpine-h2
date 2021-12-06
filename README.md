@@ -1,17 +1,19 @@
 # alpine-h2
 찾다찾다 내가 짜집기해서 만든 h2 도커 서버
 
-
 ## 개요
 - 알파인 리눅스에 h2database만 똭
 - 최소 설치
 - 데이터 위치: `/opt/h2-data`
 
+## Release Note
+- 21.12.06 : 2.0.202버전으로 업그레이드
+
 ## 도커파일 확인
 
 - [Automated builds](https://hub.docker.com/repository/docker/rkaehdaos/h2) 
-
-- [`latest`, `1.4.200` (*1.4.200/Dockerfile*)](https://github.com/rkaehdaos/h2/blob/main/Dockerfile)
+- [`latest`, `2.0.202` (*2.0.202/Dockerfile*)](https://github.com/rkaehdaos/h2/blob/main/Dockerfile)
+- [`1.4.200` (*1.4.200/Dockerfile*)](https://github.com/rkaehdaos/h2/blob/9045cbe5678ddcf0334a923fccf523191b71dd30/Dockerfile)
 
 
 ## 실행
