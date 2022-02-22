@@ -7,7 +7,8 @@
 - 데이터 위치: `/opt/h2-data`
 
 ## Release Note
-- 21.12.06 : 2.0.202버전으로 업그레이드
+- 22-02-22 : 2.1.210 버전으로 업그레이드
+- 21.12.06 : 2.0.202 버전으로 업그레이드
 - BuildX를 통해 이제 댜른 OS/ARCH에서도 해당하는 이미지가 다운로드 됩니다
 - <img width="347" alt="image" src="https://user-images.githubusercontent.com/13996827/145544874-c9a9edac-ea6f-417c-97ae-e6202997a071.png">
 
