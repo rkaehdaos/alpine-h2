@@ -15,7 +15,7 @@
 ## 도커파일 확인
 
 - [Automated builds](https://hub.docker.com/repository/docker/rkaehdaos/h2) 
-- [`latest`, `2.0.202` (*2.0.202/Dockerfile*)](https://github.com/rkaehdaos/h2/blob/main/Dockerfile)
+- [`latest`, `2.1.210` (*2.1.210/Dockerfile*)](https://github.com/rkaehdaos/h2/blob/main/Dockerfile)
 - [`1.4.200` (*1.4.200/Dockerfile*)](https://github.com/rkaehdaos/h2/blob/9045cbe5678ddcf0334a923fccf523191b71dd30/Dockerfile)
 
 

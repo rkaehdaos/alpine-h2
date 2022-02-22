@@ -2,10 +2,11 @@ FROM openjdk:jre-alpine
 
 LABEL name ="GeunChang Ahn"
 LABEL email = "rkaehdaos@gmail.com"
-LABEL version = "2.0.202"
-LABEL description = "2.0.202 upgrade"
+LABEL version = "2.1.210"
+LABEL description = "2.1.210 upgrade"
 
-ENV DOWNLOAD https://github.com/h2database/h2database/releases/download/version-2.0.202/h2-2021-11-25.zip
+ENV DOWNLOAD https://github.com/h2database/h2database/releases/download/version-2.1.210/h2-2022-01-17.zip
+
 ENV DATA_DIR /opt/h2-data
 
 RUN apk add --no-cache wget
