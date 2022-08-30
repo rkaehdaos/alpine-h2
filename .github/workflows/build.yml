@@ -41,7 +41,24 @@ jobs:
           echo "Status:    ${{ steps.buildx.outputs.status }}"
           echo "Flags:     ${{ steps.buildx.outputs.flags }}"
           echo "Platforms: ${{ steps.buildx.outputs.platforms }}"
+          
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          platforms: linux/amd64,linux/arm64,linux/ppc64le,linux/s390x,linux/386,linux/arm/v7,linux/arm/v6
+          push: true
+          tags: rkaehdaos/h2:latest, rkaehdaos/h2:${{ secrets.H2VERSION }}
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache-new
 
+      # layer caching
+      # github의 repo는 5GB까지만 Cache 보관 가능
+      # 수동으로 이전 캐시를 지우고 새로운 캐시를 옮겨놓는 과정
+      - name: Move cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+          
       - name: Notification
         uses: 8398a7/action-slack@v3
         with:
