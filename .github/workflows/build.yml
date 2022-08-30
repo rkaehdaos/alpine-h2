@@ -2,7 +2,8 @@ name: Build and Push Docker image
 on:
   push:
     branches:
-      - master
+#       - master
+      - make_github_action
 
 jobs:
   build:
