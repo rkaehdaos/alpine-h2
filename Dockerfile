@@ -2,11 +2,10 @@ FROM openjdk:jre-alpine
 
 LABEL name ="GeunChang Ahn"
 LABEL email = "rkaehdaos@gmail.com"
-LABEL version = "${{ secrets.H2VERSION }}"
+LABEL version = "${H2_VERSION}"
 LABEL description = "${{ secrets.H2VERSION }} upgrade"
 
-ENV DOWNLOAD "https://github.com/h2database/h2database/releases/download/version-${{ secrets.H2VERSION }}/h2-${{ secrets.H2RELEASEDATE }}.zip"
-ENV DOWNLOAD "https://github.com/h2database/h2database/releases/download/version-${{ secrets.H2VERSION }}/h2-2022-06-13.zip"
+ENV DOWNLOAD "https://github.com/h2database/h2database/releases/download/version-${H2_VERSION}/h2-${H2_RELEASEDATE}.zip"
 
 ENV DATA_DIR /opt/h2-data
 
