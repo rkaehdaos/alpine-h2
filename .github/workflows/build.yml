@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@master
+      
+      - name: Setup QEMU
+        uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker BuildX
         id: buildx
