@@ -3,11 +3,11 @@ FROM openjdk:jre-alpine
 LABEL name ="GeunChang Ahn"
 LABEL email = "rkaehdaos@gmail.com"
 LABEL version = "${H2_VERSION}"
-LABEL description = "${{ secrets.H2VERSION }} upgrade"
+LABEL description = "${H2_VERSION} upgrade"
 
-ENV DOWNLOAD "https://github.com/h2database/h2database/releases/download/version-${H2_VERSION}/h2-${H2_RELEASEDATE}.zip"
+ARG DOWNLOAD "https://github.com/h2database/h2database/releases/download/version-${H2_VERSION}/h2-${H2_RELEASEDATE}.zip"
 
-ENV DATA_DIR /opt/h2-data
+ARG DATA_DIR /opt/h2-data
 
 RUN apk add --no-cache wget
 
