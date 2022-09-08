@@ -55,8 +55,8 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           secrets: |
-            "H2_VERSION: ${{ secrets.H2VERSION }}"
-            "H2_RELEASEDATE: ${{ secrets.H2RELEASEDATE }}
+            "H2_VERSION=${{ secrets.H2VERSION }}"
+            "H2_RELEASEDATE=${{ secrets.H2RELEASEDATE }}
  
 
       # layer caching
