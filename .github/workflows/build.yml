@@ -12,14 +12,15 @@ jobs:
     steps:
       ##
       - name: print secret
-        run : |
-        echo "os:       ${{ runner.os }}"
-        echo "github.sha:       ${{ github.sha }}"
-        echo "secrets.DOCKERHUB_USERNAME:       ${{ secrets.DOCKERHUB_USERNAME }}"
-        echo "secrets.DOCKERHUB_TOKEN:       ${{ secrets.DOCKERHUB_TOKEN }}"
-        echo "os:       ${{ runner.os }}"
-        echo "os:       ${{ runner.os }}"
-        echo "os:       ${{ runner.os }}"
+        run: |
+          echo "Name:      ${{ steps.buildx.outputs.name }}"
+          echo "os:       ${{ runner.os }}"
+          echo "github.sha:       ${{ github.sha }}"
+          echo "secrets.DOCKERHUB_USERNAME:       ${{ secrets.DOCKERHUB_USERNAME }}"
+          echo "secrets.DOCKERHUB_TOKEN:       ${{ secrets.DOCKERHUB_TOKEN }}"
+          echo "os:       ${{ runner.os }}"
+          echo "os:       ${{ runner.os }}"
+          echo "os:       ${{ runner.os }}"
 
       - name: Checkout source code
         uses: actions/checkout@master
