@@ -6,7 +6,7 @@ LABEL version = "version-"
 LABEL description = "$H2_VERSION upgrade"
 
 RUN --mount=type=secret,id=H2_VERSION \
-    && cat /run/secrets/H2_VERSION
+    cat /run/secrets/H2_VERSION
 
 # ENV DOWNLOAD "https://github.com/h2database/h2database/releases/download/version-$H2_VERSION/h2-$H2_RELEASEDATE.zip"
 ENV DOWNLOAD https://github.com/h2database/h2database/releases/download/version-2.1.214/h2-2022-06-13.zip
