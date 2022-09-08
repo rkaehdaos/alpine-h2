@@ -1,7 +1,7 @@
 FROM openjdk:jre-alpine
 
 RUN --mount=type=secret,id=H2_VERSION \
-    H2_VERSION=$(cat /run/secrets/H2_VERSION) echo $H2_VERSION
+    H2_VERSION=$(cat /run/secrets/H2_VERSION) cat /run/secrets/H2_VERSION
 
 LABEL name ="GeunChang Ahn"
 LABEL email = "rkaehdaos@gmail.com"
@@ -12,10 +12,6 @@ LABEL description = "$H2_VERSION upgrade"
 ENV DOWNLOAD https://github.com/h2database/h2database/releases/download/version-2.1.214/h2-2022-06-13.zip
 
 ENV DATA_DIR /opt/h2-data
-
-RUN echo $path
-
-RUN echo $H2_RELEASEDATE
 
 RUN apk add --no-cache wget
 
