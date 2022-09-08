@@ -2,7 +2,7 @@ FROM openjdk:jre-alpine
 
 LABEL name ="GeunChang Ahn"
 LABEL email = "rkaehdaos@gmail.com"
-LABEL version = "version-$path"
+LABEL version = "version-${{ secrets.H2VERSION }}"
 LABEL description = "$H2_VERSION upgrade"
 
 # ENV DOWNLOAD "https://github.com/h2database/h2database/releases/download/version-$H2_VERSION/h2-$H2_RELEASEDATE.zip"
@@ -13,8 +13,6 @@ RUN echo $path
 RUN echo $H2_VERSION
 
 RUN echo $H2_RELEASEDATE
-
-RUN cat /run/secrets/H2_VERSION
 
 RUN apk add --no-cache wget
 
