@@ -45,9 +45,9 @@ jobs:
           
       - name: Build and push
         uses: docker/build-push-action@v3
-        # env:
-          # H2_VERSION: ${{ secrets.H2VERSION }}
-          # H2_RELEASEDATE: ${{ secrets.H2RELEASEDATE }}
+        env:
+          H2_VERSION: ${{ secrets.H2VERSION }}
+          H2_RELEASEDATE: ${{ secrets.H2RELEASEDATE }}
         with:
           platforms: linux/amd64,linux/arm64,linux/ppc64le,linux/s390x,linux/386,linux/arm/v7,linux/arm/v6
           push: true
