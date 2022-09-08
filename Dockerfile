@@ -14,6 +14,8 @@ RUN echo $H2_VERSION
 
 RUN echo $H2_RELEASEDATE
 
+RUN cat /run/secrets/H2_VERSION
+
 RUN apk add --no-cache wget
 
 RUN mkdir -p ${DATA_DIR} \
