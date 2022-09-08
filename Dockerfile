@@ -12,14 +12,7 @@ ENV DATA_DIR /opt/h2-data
 RUN apk add --no-cache wget
 
 ##
-RUN echo "#####" \
-    && echo ${H2_VERSION} \
-    && echo "#####" \
-    && echo ${{H2_VERSION}} \
-    && echo "#####" \
-    && echo ${DATA_DIR} \
-    && echo "#####" \
-    && echo ${DOWNLOAD}
+RUN echo "#####" 
 
 RUN mkdir -p ${DATA_DIR} \
     && wget -O h2.zip ${DOWNLOAD} \
