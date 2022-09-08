@@ -5,7 +5,7 @@ LABEL email = "rkaehdaos@gmail.com"
 LABEL version = "version-"
 LABEL description = "$H2_VERSION upgrade"
 
-RUN --mount=type=secrets,id=H2_VERSION \
+RUN --mount=type=secret,id=H2_VERSION \
     && cat /run/secrets/H2_VERSION
 
 # ENV DOWNLOAD "https://github.com/h2database/h2database/releases/download/version-$H2_VERSION/h2-$H2_RELEASEDATE.zip"
