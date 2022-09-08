@@ -11,6 +11,16 @@ ENV DATA_DIR /opt/h2-data
 
 RUN apk add --no-cache wget
 
+##
+RUN echo "#####" \
+    && echo ${H2_VERSION} \
+    && echo "#####" \
+    && echo ${{H2_VERSION}} \
+    && echo "#####" \
+    && echo ${DATA_DIR} \
+    && echo "#####" \
+    && echo ${DOWNLOAD}
+
 RUN mkdir -p ${DATA_DIR} \
     && wget -O h2.zip ${DOWNLOAD} \
     && unzip h2.zip -d /opt/ \
@@ -23,6 +33,6 @@ EXPOSE 81 1521
 WORKDIR /opt/h2-data
 
 CMD java -cp /opt/h2/bin/h2*.jar org.h2.tools.Server \
- 	-web -webAllowOthers -webPort 81 \
- 	-tcp -tcpAllowOthers -tcpPort 1521 \
- 	-baseDir ${DATA_DIR} ${H2_OPTIONS}
+    -web -webAllowOthers -webPort 81 \
+    -tcp -tcpAllowOthers -tcpPort 1521 \
+    -baseDir ${DATA_DIR} ${H2_OPTIONS}
