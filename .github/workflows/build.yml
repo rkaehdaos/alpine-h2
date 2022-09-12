@@ -2,9 +2,7 @@ name: Build and Push Docker image
 on:
   push:
     branches:
-#       - master
-      - make_github_action
-
+      - master
 jobs:
   build:
     name: Build with buildx
@@ -48,9 +46,6 @@ jobs:
           
       - name: Build and push
         uses: docker/build-push-action@v3
-        # env:
-          # H2_VERSION: ${{ secrets.H2VERSION }}
-          # H2_RELEASEDATE: ${{ secrets.H2RELEASEDATE }}
         with:
           platforms: linux/amd64,linux/arm64,linux/ppc64le,linux/s390x,linux/386,linux/arm/v7,linux/arm/v6
           push: true

@@ -7,13 +7,14 @@
 - minimum size(about 66MB)
 - Multiple Arch native image include arm64 which support to Apple silicon
 - data location: `/opt/h2-data`
+- Github Action build 자동 빌드
+  - secret arg : H2_VERSION, H2_RELEASEDATE
 
 ## Release Note
 - 22-06-24 : 2.1.214 upgrade
 - 22-04-29 : 2.1.212 upgrade
 - 22-02-22 : 2.1.210 upgrade
 - 21.12.06 : 2.0.202 upgrade
-
 
 ## 도커파일 확인
 
@@ -22,7 +23,6 @@
 - [`2.1.212` (*2.1.212/Dockerfile*)](https://github.com/rkaehdaos/h2/blob/ba01ab340db8349523997d77929df6c7c97432b3/Dockerfile)
 - [`2.1.210` (*2.1.210/Dockerfile*)](https://github.com/rkaehdaos/h2/blob/8194c5672fa6450d6472c22392b4c234f0ca8d63/Dockerfile)
 - [`1.4.200` (*1.4.200/Dockerfile*)](https://github.com/rkaehdaos/h2/blob/9045cbe5678ddcf0334a923fccf523191b71dd30/Dockerfile)
-
 
 ## about running
 
