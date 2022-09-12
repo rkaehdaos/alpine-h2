@@ -37,11 +37,14 @@ jobs:
 
       - name: Inspect builder
         run: |
-          echo "Name:      ${{ steps.buildx.outputs.name }}"
-          echo "Endpoint:  ${{ steps.buildx.outputs.endpoint }}"
-          echo "Status:    ${{ steps.buildx.outputs.status }}"
-          echo "Flags:     ${{ steps.buildx.outputs.flags }}"
-          echo "Platforms: ${{ steps.buildx.outputs.platforms }}"
+          echo "Name:           ${{ steps.buildx.outputs.name }}"
+          echo "Endpoint:       ${{ steps.buildx.outputs.endpoint }}"
+          echo "Status:         ${{ steps.buildx.outputs.status }}"
+          echo "Flags:          ${{ steps.buildx.outputs.flags }}"
+          echo "Platforms:      ${{ steps.buildx.outputs.platforms }}"
+          echo "H2VERSION:      ${{ secrets.H2VERSION }}"
+          echo "H2_RELEASEDATE: ${{ secrets.H2_RELEASEDATE }}"
+
           
       - name: Build and push
         uses: docker/build-push-action@v3
