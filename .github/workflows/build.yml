@@ -1,0 +1,78 @@
+name: Build and Push Docker image
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    name: Build with buildx
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout source code
+        uses: actions/checkout@master
+      
+      - name: Setup QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker BuildX
+        id: buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Cache Docker layers
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+    
+      - name: Login to Dockerhub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Inspect builder
+        run: |
+          echo "Name:           ${{ steps.buildx.outputs.name }}"
+          echo "Endpoint:       ${{ steps.buildx.outputs.endpoint }}"
+          echo "Status:         ${{ steps.buildx.outputs.status }}"
+          echo "Flags:          ${{ steps.buildx.outputs.flags }}"
+          echo "Platforms:      ${{ steps.buildx.outputs.platforms }}"
+          echo "H2VERSION:      ${{ secrets.H2VERSION }}"
+          echo "H2_RELEASEDATE: ${{ secrets.H2_RELEASEDATE }}"
+
+          
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          platforms: linux/amd64,linux/arm64,linux/ppc64le,linux/s390x,linux/386,linux/arm/v7,linux/arm/v6
+          push: true
+          tags: rkaehdaos/h2:latest, rkaehdaos/h2:${{ secrets.H2VERSION }}
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache-new
+          # secrets: |
+          build-args: |
+            "H2_VERSION=${{ secrets.H2VERSION }}"
+            "H2_RELEASEDATE=${{ secrets.H2RELEASEDATE }}"
+
+      # layer caching
+      # github의 repo는 5GB까지만 Cache 보관 가능
+      # 수동으로 이전 캐시를 지우고 새로운 캐시를 옮겨놓는 과정
+      - name: Move cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
+          
+      - name: Notification
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          author_name: GeunChang Ahn
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest # selectable (default: repo,message)
+#          mention: here
+#          if_mention: failure, cancelled
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
