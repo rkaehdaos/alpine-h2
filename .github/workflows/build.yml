@@ -45,9 +45,9 @@ jobs:
           
       - name: Build and push
         uses: docker/build-push-action@v3
-        env:
-          H2_VERSION: ${{ secrets.H2VERSION }}
-          H2_RELEASEDATE: ${{ secrets.H2RELEASEDATE }}
+        # env:
+          # H2_VERSION: ${{ secrets.H2VERSION }}
+          # H2_RELEASEDATE: ${{ secrets.H2RELEASEDATE }}
         with:
           platforms: linux/amd64,linux/arm64,linux/ppc64le,linux/s390x,linux/386,linux/arm/v7,linux/arm/v6
           push: true
@@ -57,18 +57,6 @@ jobs:
           secrets: |
             "H2_VERSION=${{ secrets.H2VERSION }}"
             "H2_RELEASEDATE=${{ secrets.H2RELEASEDATE }}"
-            "MYSECRET=${{ secrets.GPG_KEY }}"
-            GIT_AUTH_TOKEN=abcdefghi,jklmno=0123456789
-            "MYSECRET=aaaaaaaa
-            bbbbbbb
-            ccccccccc"
-            FOO=bar
-            "EMPTYLINE=aaaa
-
-            bbbb
-            ccc"
-            "JSON_SECRET={""key1"":""value1"",""key2"":""value2""}"
- 
 
       # layer caching
       # github의 repo는 5GB까지만 Cache 보관 가능
