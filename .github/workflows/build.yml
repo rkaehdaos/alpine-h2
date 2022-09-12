@@ -57,6 +57,17 @@ jobs:
           secrets: |
             "H2_VERSION=${{ secrets.H2VERSION }}"
             "H2_RELEASEDATE=${{ secrets.H2RELEASEDATE }}"
+            "MYSECRET=${{ secrets.GPG_KEY }}"
+            GIT_AUTH_TOKEN=abcdefghi,jklmno=0123456789
+            "MYSECRET=aaaaaaaa
+            bbbbbbb
+            ccccccccc"
+            FOO=bar
+            "EMPTYLINE=aaaa
+
+            bbbb
+            ccc"
+            "JSON_SECRET={""key1"":""value1"",""key2"":""value2""}"
  
 
       # layer caching
