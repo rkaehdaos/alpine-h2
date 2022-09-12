@@ -1,5 +1,8 @@
 FROM openjdk:jre-alpine
 
+ARG H2_VERSION=default_version
+ARG H2_RELEASEDATE=default_date
+
 RUN --mount=type=secret,id=H2_VERSION \
    export H2_VERSION=$(cat /run/secrets/H2_VERSION) && \
    echo ${H2_VERSION}
