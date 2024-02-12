@@ -1,6 +1,6 @@
 # alpine-h2
 
-ㅅㄷㄴㅅ
+[![Build and Push Docker image](https://github.com/rkaehdaos/h2/actions/workflows/build.yml/badge.svg)](https://github.com/rkaehdaos/h2/actions/workflows/build.yml)
 
 - 찾다찾다 내가 짜집기해서 만든 h2 도커 서버
   (I tried to find a simple h2, but I couldn't find it, so I made my own)
